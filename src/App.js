@@ -7,6 +7,7 @@ import { CssBaseline } from '@material-ui/core'
 
 function App(){
   const [data, setData] = useState({})
+  const [country, setCountry] = useState({})
 
   useEffect(() => {
     const fetch = async function(){
@@ -16,10 +17,14 @@ function App(){
     fetch()
   }, [])
 
+  async function handleCountryChange(country){
+    console.log(country, 'ini dari app')
+  }
+
   return (
     <div className={styles.container}>
       <Cards data={data} />
-      <CountryPicker/>
+      <CountryPicker handleCountryChange={handleCountryChange}/>
       <Chart/>
     </div>
   )
