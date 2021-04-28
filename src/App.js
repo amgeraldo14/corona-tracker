@@ -3,6 +3,7 @@ import React, { useEffect, useState }from 'react'
 import { Cards, Chart, CountryPicker } from './components'
 import styles from './App.module.css'
 import { fetchData } from './api'
+import { CssBaseline } from '@material-ui/core'
 
 function App(){
   const [data, setData] = useState({})
