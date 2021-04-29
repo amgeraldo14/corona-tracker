@@ -3,11 +3,11 @@ import React, { useEffect, useState }from 'react'
 import { Cards, Chart, CountryPicker } from './components'
 import styles from './App.module.css'
 import { fetchData } from './api'
-import { CssBaseline } from '@material-ui/core'
+import covid from './images/covid-edit.png'
 
 function App(){
   const [data, setData] = useState({})
-  const [country, setCountry] = useState({})
+  const [country, setCountry] = useState('')
 
   useEffect(() => {
     const fetch = async function(){
@@ -18,14 +18,22 @@ function App(){
   }, [])
 
   async function handleCountryChange(country){
-    console.log(country, 'ini dari app')
+    const fetchedData = await fetchData(country)
+    console.log(fetchedData,'ini fetcched data')
+    setData(fetchedData)
+    if(country !== 'global'){
+      setCountry(country)
+    } else {
+      setCountry('')
+    }
   }
 
   return (
     <div className={styles.container}>
+      <img src={covid} alt="covid" className={styles.img}></img>
       <Cards data={data} />
       <CountryPicker handleCountryChange={handleCountryChange}/>
-      <Chart/>
+      <Chart data={data} country={country}/>
     </div>
   )
 }

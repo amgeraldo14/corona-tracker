@@ -21,7 +21,7 @@ function Cards({data: {confirmed, deaths, lastUpdate, recovered}}){
               <CountUp start={0} end={confirmed.value}duration={2}separator=","/>
             </Typography>
             <Typography color="textSecondary" gutterBottom> {new Date(lastUpdate).toDateString()} </Typography>
-            <Typography variant="body2"> Number of active cases worldwide</Typography>
+            <Typography variant="body2"> Number of active cases</Typography>
           </CardContent>
         </Grid>
 
@@ -31,8 +31,8 @@ function Cards({data: {confirmed, deaths, lastUpdate, recovered}}){
             <Typography variant="h5" gutterBottom> 
               <CountUp start={0} end={recovered.value}duration={2}separator=","/>
             </Typography>
-            <Typography color="textSecondary" gutterBottom> {lastUpdate.substr(0,10)} </Typography>
-            <Typography variant="body2"> Number of people recovered worldwide </Typography>
+            <Typography color="textSecondary" gutterBottom>{new Date(lastUpdate).toDateString()}</Typography>
+            <Typography variant="body2"> Number of people recovered </Typography>
           </CardContent>
         </Grid>
 
@@ -42,8 +42,8 @@ function Cards({data: {confirmed, deaths, lastUpdate, recovered}}){
             <Typography variant="h5" gutterBottom> 
               <CountUp start={0} end={deaths.value}duration={2}separator=","/> 
             </Typography>
-            <Typography color="textSecondary" gutterBottom> {lastUpdate.substr(0,10)} </Typography>
-            <Typography variant="body2"> Number of deaths worldwide</Typography>
+            <Typography color="textSecondary" gutterBottom> {new Date(lastUpdate).toDateString()} </Typography>
+            <Typography variant="body2"> Number of deaths</Typography>
           </CardContent>
         </Grid>
 
