@@ -1,6 +1,7 @@
 import React, { useEffect, useState }from 'react'
 
-import { Cards, Chart, CountryPicker } from './components'
+import { Cards, Chart, CountryPicker, } from './components'
+import { CssBaseline } from '@material-ui/core'
 import styles from './App.module.css'
 import { fetchData } from './api'
 import covid from './images/covid-edit.png'
